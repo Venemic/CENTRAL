@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+:root {
+  --primary: #323232;
+  --light-bg: #f4f4f4;
+  --border: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: Lato;
+}
+		body {
+			overflow: hidden;
+  background-color: var(--light-bg);
+  background-image: url('assets/img/GIFs/animat-camp/campfire/animat-campfire-color.gif'),url('assets/img/GIFs/animat-camp/tent/animat-tent-color.gif'),url('assets/img/GIFS/vector-creator\ \(3\).png'),url('assets/img/GIFS/vector-creator (5).png');
+  background-size: 300px,400px,400px,300px;
+  background-position: left bottom, right,left top,left -40px top 40px;
+  background-repeat:no-repeat;
+  min-height: 100vh;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--primary);
+}
+#ct{
+	width: 50%;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+#verify
+{
+	pointer-events:none;
+}
+	</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>	
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.js"></script>	
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>	
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap.js"></script>	
+	<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" type="text/css"/>	
+	<link href="/stylesheets/sb-admin-2.css" rel="stylesheet" type="text/css"/>
+	<link href="/stylesheets/circle-buttons.css" rel="stylesheet" type="text/css"/>
+	<link href="/stylesheets/panel-table.css" rel="stylesheet" type="text/css"/>
+	<link href="/stylesheets/main.css" rel="stylesheet" type="text/css"/>
+	
+
+</head>
+<body onload="checklogin()">
+<!-- partial:index.partial.html -->
+    <div class="panel panel-default panel-info Profile" style="margin-top: 20px;" id="ct" >
+      <div class="panel-heading" > My Profile </div>
+      <div class="alert alert-success" id="work" hidden>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Profile successfully saved
+      </div>
+      <div class="alert alert-warning" id="notwork" hidden>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Oops!</strong> Profile not saved. Try later.
+      </div>
+      <div class="panel-body"  >
+        <div class="form-horizontal" >
+
+
+			<form style="margin-left: 30px;margin-right: 30px;">
+				<div style="margin-left: 250px;">
+				<img src="assets/img/GIFS/animat-essential/rocket/animat-rocket-color.gif" alt="User Image" style="width: 200px;">
+				</div>
+				<div class="form-group">
+				  <label for="exampleInputEmail1">Name</label>
+				  <input type="text" class="form-control"   placeholder="Name" id="fullname" disabled>
+				  
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Register No</label>
+					<input type="text" class="form-control"   placeholder="Register Number" id="regno" disabled>
+					
+				  </div>
+				  <div class="form-group">
+					<label for="exampleInputEmail1">Department</label>
+					<input type="text" class="form-control"  placeholder="Department" id="dept" disabled>
+					
+				  </div>
+				  <div class="form-group">
+					<label for="exampleInputEmail1">Phone</label>
+					<input type="tel" class="form-control"  placeholder="Phone" id="phone" disabled>
+					
+				  </div>
+				<div class="form-group">
+				  <label for="exampleInputPassword1">Email</label>
+				  <input type="email" class="form-control"  placeholder="Email Address" id="email" disabled>
+				  <div style="display: inline-flex;margin-top: 5px;">
+				  <a href="#" type="submit" onclick="amd()" id="pk" style="margin-right:10px;">Verify</a>
+					<input type="checkbox" id="verify" hidden ></div>
+				</div>
+
+				<div class="form-group" style="display: inline-flex;">
+					<form enctype="multipart/form-data">
+					<input type="file" id="image" accept="image/*"><br><br>
+					<a type="button" class="btn btn-success" onclick="upload()">Upload</a>	  
+				</form>
+					<a type="button" class="btn btn-primary" onclick="insertdata();" style="margin-left: 50px;">Submit</a>
+					<a type="button" class="btn btn-danger"  onclick="enableclick();" style="margin-left: 50px;">Edit</a>
+				</div>		
+							<progress id="uploader" class="progress" style="width: 700px;margin-left: 20px;"></progress>	
+			  			</form>
+							
+        	</div>  <!-- end form-horizontal -->
+      </div> <!-- end panel-body -->
+
+    </div> <!-- end panel -->
+     <!-- end container-fluid -->
+<!-- partial -->
+
+<script src="Login_Page/js/form.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+<script>
+	// TO get the name of the current opened page
+	var fileName = location.href.split("/").slice(-1); 
+	
+	var firebaseConfig = {
+		apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+		authDomain: "central-4a4fe.firebaseapp.com",
+		databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+		projectId: "central-4a4fe",
+		storageBucket: "central-4a4fe.appspot.com",
+		messagingSenderId: "505151711668",
+		appId: "1:505151711668:web:94781827c46abd27c3eae1",
+		measurementId: "G-QZ62YZFXX5"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  function amd(){
+		var user = firebase.auth().currentUser;  
+           var email = user.emailVerified;
+                if(email)
+                {
+						window.alert("Verified");
+						var veri =  document.getElementById("verify");
+                  		 veri.checked = true;
+                  		 veri.style.display = "block";
+                } 
+				else
+				{						
+						console.log('email');
+						sendVerificationEmail();
+				}
+	  }
+	  
+	function enableclick(){
+
+  if(document.getElementById("fullname").disabled == true )
+  {
+    document.getElementById("fullname").disabled = false;
+  }
+  else{
+    document.getElementById("fullname").disabled = true;
+  }
+
+
+  if(document.getElementById("regno").disabled == true )
+  {
+    document.getElementById("regno").disabled = false;
+  }
+  else{
+    document.getElementById("regno").disabled = true;
+  }
+
+
+  if(document.getElementById("dept").disabled == true )
+  {
+    document.getElementById("dept").disabled = false;
+  }
+  else{
+    document.getElementById("dept").disabled = true;
+  }
+
+
+  if(document.getElementById("phone").disabled == true )
+  {
+    document.getElementById("phone").disabled = false;
+  }
+  else{
+    document.getElementById("phone").disabled = true;
+  }
+
+	}
+		</script>
+		</body>
+</html>

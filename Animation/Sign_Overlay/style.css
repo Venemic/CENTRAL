@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  box-sizing: inherit;
+}
+*:focus {
+  outline: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f1;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+form {
+  display: block;
+}
+
+label,
+input {
+  display: block;
+}
+
+.animate, .overlay .overlay-content .signup-form input, .overlay .overlay-content .overlay-close, .overlay .overlay-content, .btn span, .btn {
+  transition: all 0.3s;
+}
+
+main {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.main-heading {
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  border: 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn span {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.btn span .fa {
+  margin-left: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.btn:not(.btn-outline) {
+  background-color: #fff;
+}
+.btn:not(.btn-outline) span {
+  color: #666;
+}
+.btn:not(.btn-outline):hover {
+  background-color: #f7f7f7;
+}
+.btn.btn-outline {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.btn.btn-outline span {
+  color: #fff;
+}
+.btn.btn-outline:hover {
+  background-color: #fff;
+}
+.btn.btn-outline:hover span {
+  color: #666;
+}
+
+.popup-trigger {
+  width: 175px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(200px);
+  transition: opacity 0.5s, transform 0.5s, z-index 0s 0.5s;
+}
+.overlay .overlay-background {
+  background-color: rgba(44, 62, 80, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.overlay .overlay-content {
+  width: 100%;
+  max-width: 530px;
+  margin: 100px auto 0;
+  padding: 0 15px;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+.overlay .overlay-content .overlay-close {
+  display: block;
+  font-size: 35px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.overlay .overlay-content .overlay-close:hover {
+  opacity: 0.8;
+}
+.overlay .overlay-content .blurb {
+  margin-top: 35px;
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 18px;
+}
+.overlay .overlay-content .blurb-tagline {
+  display: block;
+  margin-top: 10px;
+  line-height: 100%;
+  font-size: 14px;
+}
+.overlay .overlay-content .signup-form {
+  margin-top: 35px;
+}
+.overlay .overlay-content .signup-form label {
+  line-height: 100%;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.overlay .overlay-content .signup-form input {
+  background-color: transparent;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 0 8px;
+  border: 1px solid rgba(254, 254, 254, 0.3);
+  border-radius: 5px;
+}
+.overlay .overlay-content .signup-form input:hover, .overlay .overlay-content .signup-form input:focus {
+  border-color: #fff;
+}
+.overlay .overlay-content .signup-form .submit-btn {
+  width: 150px;
+}
+.overlay.open {
+  z-index: 15;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s, z-index 0s;
+}
+.overlay.short .overlay-content {
+  margin: 30px auto;
+}
+
+@media (max-width: 600px) {
+  .overlay .overlay-content {
+    margin: 25px auto;
+  }
+}

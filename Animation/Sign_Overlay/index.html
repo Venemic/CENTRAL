@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Overlay Signup Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="overlay" id="overlay">
+  <div class="overlay-background" id="overlay-background"></div>
+  <div class="overlay-content" id="overlay-content">
+    <div class="fa fa-times fa-lg overlay-close" id="overlay-close"></div>
+    <h1 class="main-heading">Signup Now</h1>
+    <h3 class="blurb">Creating an account is free &mdash;</h3><span class="blurb-tagline">and won't take longer than a couple of seconds.</span>
+    <form class="signup-form" method="post" action="#" novalidate="novalidate">
+      <!--<label for="signup-name">Full Name</label>
+      <input id="signup-name" type="text" name="name" autocomplete="off"/>-->
+      <label for="email">Email Address</label>
+      <input id="email" type="email" name="email" autocomplete="on"/>
+      <label for="trypassword">Password</label>
+      <input id="trypassword" type="password" name="pw" autocomplete="off"/>
+      <label for="password">Confirm Password</label>
+      <input id="password" type="password" name="cpw" autocomplete="off"/>
+      <a class="btn btn-outline submit-btn" onclick="signup()"><span>signup</span></a>
+    </form>
+  </div>
+</div>
+<!-- partial -->
+  <script src="../Login_Page/js/form.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+  <script>
+  
+    var firebaseConfig = {
+      apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+      authDomain: "central-4a4fe.firebaseapp.com",
+      databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+      projectId: "central-4a4fe",
+      storageBucket: "central-4a4fe.appspot.com",
+      messagingSenderId: "505151711668",
+      appId: "1:505151711668:web:94781827c46abd27c3eae1",
+      measurementId: "G-QZ62YZFXX5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      </script>
+</body>
+</html>

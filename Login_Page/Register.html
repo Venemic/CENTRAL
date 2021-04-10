@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+		<style>
+			#roadsign{
+				width: 128px;
+		background-image: url('../assets/img/GIFS/animat-camp/sign-post/animat-sign-post-color.gif');
+		background-size: 100%;
+		background-position: center;
+		 animation: ease-in-out;
+		 margin-top: -50px;
+		 margin-left: -30px;
+		animation-duration: 3s;
+		background-repeat: no-repeat;
+	
+			}
+			#roadsign:hover{
+				background-image: url('../assets/img/GIFS/animat-camp/compass/animat-compass-color.gif');  
+			}
+    #divi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+#spani {
+    color: red;
+    display:block;
+    margin-top: 10px;
+}
+  
+		#uplod{
+			margin-top: 10px;
+		}
+		#contain{
+			padding: 20px 0 0 0;
+			margin-left: 25px;
+		}
+		#namebox{
+			border:2px solid black;
+			margin-bottom: 20px;
+		}
+		
+	</style>
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/form.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+<!--===============================================================================================-->
+</head>
+<body >
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt style="margin-top: -100px;">
+					<img src="images/discovery.png" alt="IMG" >
+				</div>
+
+				<form class="login100-form validate-form" style="margin-top: -100px;margin-bottom: -100px;">
+					<div style="display: inline-flex;margin-left: 60px;margin-bottom: -30px;">
+					<span class="login100-form-title">
+						Register
+					</span>
+					<div id="roadsign"></div>
+				</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" id="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="text-center p-t-12">
+						<a class="txt2" href="#">
+							<a class="login100-form-btn" type="submit" onclick="signup()" id="regbtn" >
+							Register
+							</a>
+						</a>
+						<span style="font-size: 14px;">
+						Already have an account? <a href="index.html" aria-hidden="true">Login</a>
+					</span>
+					</div>
+					
+						
+					<div class="text-center p-t-136">
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!--===============================================================================================-->	
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+<script id="MainScript">
+	var firebaseConfig = {
+        apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+        authDomain: "central-4a4fe.firebaseapp.com",
+        databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+        projectId: "central-4a4fe",
+        storageBucket: "central-4a4fe.appspot.com",
+        messagingSenderId: "505151711668",
+        appId: "1:505151711668:web:94781827c46abd27c3eae1",
+        measurementId: "G-QZ62YZFXX5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+</script>
+</body>
+</html>

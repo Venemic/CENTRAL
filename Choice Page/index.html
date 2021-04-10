@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link href="../assets/img/favicon_io/favicon-32x32.png" rel="icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css"> <title>Choose</title>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+ </head>
+
+ <body onload="clck()">
+ <div class="container">
+
+
+<div class="split left">
+
+<h1>Student</h1>
+<a  href="#"  class="button" id="student" onclick="Ready1()">Explore</a>
+
+</div>
+
+<div class="split right">
+
+<h1>Faculty</h1>
+<a href="#" class="button" id="faculty" onclick="Ready2()">Explore</a>
+
+</div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+        authDomain: "central-4a4fe.firebaseapp.com",
+        databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+        projectId: "central-4a4fe",
+        storageBucket: "central-4a4fe.appspot.com",
+        messagingSenderId: "505151711668",
+        appId: "1:505151711668:web:94781827c46abd27c3eae1",
+        measurementId: "G-QZ62YZFXX5"
+      };
+      firebase.initializeApp(firebaseConfig);
+      // Initialize Firebase
+       var fname, rgno, dept, phone, mail,name1;
+    function clck(){
+  firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+            var email_id = user.email;
+            name1   = email_id.substring(0, email_id.lastIndexOf("@"));
+          } 
+        } 
+    });
+    }
+      function Ready1()
+         {
+               var str = 'S';
+               firebase.database().ref('User/'+name1).on('value',function(snapshot){
+      fname = snapshot.val().Full_Name;
+      rgno = snapshot.val().Register_Number;
+      dept = snapshot.val().Department; 
+      phone = snapshot.val().Phone_Number; 
+      mail = snapshot.val().Email; 
+    });
+        
+        firebase.database().ref('Student/'+name1).set({
+              Full_Name: fname,
+              Register_Number: rgno,
+              Department: dept,
+              Phone_Number: phone,
+              Email: mail,
+              Status: str
+            }); 
+
+            firebase.database().ref('User/'+name1).remove();
+           window.location.replace("../DASH/DASH.html");
+        }
+        function Ready2()
+         {
+          var str = 'F';
+              firebase.database().ref('User/'+name1).on('value',function(snapshot){
+      fname = snapshot.val().Full_Name;
+      rgno = snapshot.val().Register_Number;
+      dept = snapshot.val().Department; 
+      phone = snapshot.val().Phone_Number; 
+      mail = snapshot.val().Email; 
+    });
+        var str = 'F';
+        firebase.database().ref('Faculty/'+name1).set({
+              Full_Name: fname,
+              Register_Number: rgno,
+              Department: dept,
+              Phone_Number: phone,
+              Email: mail,
+              Status: str
+            }); 
+            firebase.database().ref('User/'+name1).remove();
+            window.location.replace('../DASH/DASH.html');
+        }
+</script>
+ </html>

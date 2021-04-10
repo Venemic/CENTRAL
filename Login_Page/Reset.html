@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<style>
+		#main-form{
+			background-image: url('../assets/img/GIFS/Dynamic/Questions.gif');
+			background-size: 200px;
+			background-position: 100% 50%;
+			background-repeat: no-repeat;
+		}
+		#wheel{
+			width: 80px;
+    background-image: url('../assets/img/GIFS/Static/wheel.png');
+    background-size: 100%;
+    background-position: center;
+	margin-top: -40px;
+     animation: ease-in-out;
+    animation-duration: 3s;
+	background-repeat: no-repeat;
+
+		}
+		#wheel:hover{
+			background-image: url('../assets/img/GIFS/Dynamic/wheel.gif');  
+		}
+	</style>
+<head>
+	<title>Reset</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100" id="main-form">
+				<div class="form-wrapper" style="margin-top: -80px;" >
+					<div style="display: inline-flex;"><a href="../index.html" aria-hidden="true" style="font-weight: bold;font-size: 15px;">Home</a>
+						<div id="wheel"></div>
+						<a href="index.html" aria-hidden="true" style="font-weight: bold;font-size: 15px;">Login</a>
+					</div>
+					<div>
+				<h3><strong>FORGET PASSWORD?</strong></h3>
+				<p style="text-align: justify;">Please enter your email address below and we will send you information to recover your account.</p>
+			</div>
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="container-login100-form-btn">
+						<button id="resetPassword" class="button" onclick="resetPasswordFunction()">
+							Reset
+						</button>
+					</div>
+					</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+		<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		var firebaseConfig = {
+    apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+    authDomain: "central-4a4fe.firebaseapp.com",
+    projectId: "central-4a4fe",
+    storageBucket: "central-4a4fe.appspot.com",
+    messagingSenderId: "505151711668",
+    appId: "1:505151711668:web:94781827c46abd27c3eae1",
+    measurementId: "G-QZ62YZFXX5"
+     };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+		// Your web app's Firebase configuration
+	firebase.auth().onAuthStateChanged(function(user)
+	{
+			if(user)
+			{
+				window.location.href ="../index.html";
+			}
+	});
+		const mailField = document.getElementById('email');
+		const labels = document.getElementsByTagName('label');
+		const resetPassword = document.getElementById('resetPassword');
+		const successModal = document.querySelector('.success');
+		const failureModal = document.querySelector('.failure');
+		const auth = firebase.auth();
+
+		//auth.languageCode = 'DE_de';
+
+		auth.useDeviceLanguage();
+
+const resetPasswordFunction = () => {
+    const email = mailField.value;
+
+    if(!email)
+    {
+    	window.alert("Please enter a registered email");
+	}
+	else
+	{
+		
+		auth.sendPasswordResetEmail(email)
+    .then(() => {
+        window.alert('Password Reset Email Sent Successfully!');
+    })
+    .catch(error => {
+        console.error(error);
+    })
+}
+}
+
+
+//Animations
+mailField.addEventListener('focus', () => {
+    labels.item(0).className = "focused-field";
+});
+
+mailField.addEventListener('blur', () => {
+    if(!mailField.value)
+        labels.item(0).className = "unfocused-field";
+});
+	</script>
+<!--===============================================================================================-->	
+	
+
+
+</body>
+</html>

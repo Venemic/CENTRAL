@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.8s;
+}
+*:before, *:after {
+  content: "";
+  position: absolute;
+  transition: 0.8s;
+}
+
+body {
+  background: #53b2b9;
+  width: 100%;
+  height: 100%;
+  font-family: "Cute Font", cursive;
+}
+
+.dog-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.dog {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: calc(50% - 55px);
+  width: 110px;
+  height: 175px;
+}
+.dog__ear {
+  position: absolute;
+  top: 3px;
+  left: 55px;
+  -webkit-animation: fase 0.8s infinite ease-in-out;
+  animation: fase 0.8s infinite ease-in-out;
+}
+.dog__ear:before, .dog__ear:after {
+  width: 20px;
+  height: 40px;
+  border-radius: 50% 50% 0 0;
+  background: #e6b153;
+}
+.dog__ear:before {
+  right: -35px;
+  transform-origin: top right;
+  -webkit-transform-origin: top right;
+}
+.dog__ear:after {
+  left: -34px;
+  transform-origin: top left;
+  -webkit-transform-origin: top left;
+}
+.dog__face {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 70px;
+  height: 100px;
+  border-radius: 50px 50px 0 0;
+  background: #e6b153;
+  -webkit-animation: fase 0.8s infinite ease-in-out;
+  animation: fase 0.8s infinite ease-in-out;
+}
+.dog__face:before {
+  top: 0px;
+  left: 27px;
+  width: 15px;
+  height: 25px;
+  border-radius: 50px 50px 0 0;
+  background: #fff;
+}
+.dog__face:after {
+  top: 18px;
+  left: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  background: #fff;
+}
+.dog__body {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 70px;
+  height: 100px;
+  background: #e6b153;
+  z-index: 5;
+}
+.dog__body:before {
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 80px;
+  border-radius: 50px 50px 0 0;
+  background: #fff;
+}
+.dog__body:after {
+  top: -9px;
+  width: 100%;
+  height: 10px;
+  background: #d91e19;
+  -webkit-animation: fase 0.8s infinite ease-in-out;
+  animation: fase 0.8s infinite ease-in-out;
+}
+.dog__eye {
+  position: absolute;
+  top: 15px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #333;
+}
+.dog__eye:before {
+  position: absolute;
+  top: -6px;
+  left: -1px;
+  width: 7px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+.dog__eye--left {
+  left: 19px;
+}
+.dog__eye--right {
+  right: 20px;
+}
+.dog__nose {
+  position: absolute;
+  top: 20px;
+  right: 31px;
+  width: 10px;
+  height: 8px;
+  border-radius: 0 0 10px 10px;
+  background: #333;
+  z-index: 5;
+}
+.dog__mouse {
+  position: absolute;
+  top: 30px;
+  left: 27px;
+  width: 15px;
+  height: 2px;
+  background: #333;
+  transform-origin: top left;
+  transition: 0.3s;
+  z-index: 5;
+}
+.dog__mouse:before {
+  height: 0;
+  transition: 0.3s;
+}
+.dog__tail {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  width: 10px;
+  height: 40px;
+  border-radius: 0 90% 0 0;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  background: #fff;
+  overflow: hidden;
+  -webkit-animation: tail 0.8s infinite alternate;
+  animation: tail 0.8s infinite alternate;
+}
+.dog__tail:before {
+  top: 0px;
+  right: 4px;
+  width: 10px;
+  height: 40px;
+  border-radius: 0 90% 0 0;
+  background: #e6b153;
+}
+.dog__foot {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 40px;
+  background: #e6b153;
+  z-index: 5;
+}
+.dog__foot:before {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 10px;
+  background: #e6b153;
+}
+.dog__foot--left {
+  left: 10px;
+  border-radius: 90% 0 0 0;
+}
+.dog__foot--left:before {
+  right: 0;
+  border-radius: 90% 0 0 0;
+}
+.dog__foot--right {
+  right: 10px;
+  border-radius: 0 90% 0 0;
+}
+.dog__foot--right:before {
+  left: 0;
+  border-radius: 0 90% 0 0;
+}
+.dog .ball {
+  transform: translateY(0);
+  left: -60px;
+}
+.dog .feed {
+  display: none;
+  left: 0;
+  bottom: 0;
+}
+
+#ball:checked + label + input + label + .dog .dog__eye--left {
+  left: 13px;
+}
+#ball:checked + label + input + label + .dog .dog__eye--right {
+  right: 23px;
+}
+#ball:checked + label + input + label + .dog .dog__face {
+  border-radius: 45px 50px 0 0;
+}
+#ball:checked + label + input + label + .dog .dog__face:before {
+  left: 23px;
+}
+#ball:checked + label + input + label + .dog .dog__face:after {
+  left: 15px;
+}
+#ball:checked + label + input + label + .dog .dog__nose {
+  right: 33px;
+}
+#ball:checked + label + input + label + .dog .dog__ear:before {
+  width: 23px;
+}
+#ball:checked + label + input + label + .dog .dog__ear:after {
+  width: 16px;
+}
+#ball:checked + label + input + label + .dog .dog__tail {
+  -webkit-animation: tail 0.1s infinite alternate;
+  animation: tail 0.1s infinite alternate;
+}
+#ball:checked + label + input + label + .dog .ball {
+  display: block;
+  -webkit-animation: ball 1s infinite alternate;
+  animation: ball 1s infinite alternate;
+}
+
+#feed:checked + label + .dog .dog__ear {
+  -webkit-animation: fase 0.3s infinite ease-in-out;
+  animation: fase 0.3s infinite ease-in-out;
+}
+#feed:checked + label + .dog .dog__eye {
+  top: 10px;
+}
+#feed:checked + label + .dog .dog__face {
+  -webkit-animation: fase 0.3s infinite ease-in-out;
+  animation: fase 0.3s infinite ease-in-out;
+}
+#feed:checked + label + .dog .dog__face:after {
+  top: 10px;
+  left: 18px;
+  width: 32px;
+  height: 45px;
+  background: #fff;
+}
+#feed:checked + label + .dog .dog__nose {
+  top: 12px;
+}
+#feed:checked + label + .dog .dog__mouse {
+  top: 25px;
+  transition: 0.3s;
+}
+#feed:checked + label + .dog .dog__mouse:before {
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 16px;
+  border-radius: 0 0 10px 10px;
+  background: #d91e19;
+  transition: 0.3s;
+}
+#feed:checked + label + .dog .dog__tail {
+  -webkit-animation: tail 0.1s infinite alternate;
+  animation: tail 0.1s infinite alternate;
+}
+#feed:checked + label + .dog .dog__body:after {
+  -webkit-animation: fase 0.3s infinite ease-in-out;
+  animation: fase 0.3s infinite ease-in-out;
+}
+#feed:checked + label + .dog .feed {
+  display: block;
+}
+
+.ball {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: calc(50% - 90px);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  display: none;
+}
+
+.feed {
+  position: absolute;
+  display: inline-block;
+  padding: 0px 40px 20px;
+  z-index: 10;
+}
+.feed:before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  background: #01579b;
+  transform: scaleY(1.3) perspective(0.6em) rotateX(5deg);
+  transform-origin: bottom;
+}
+.feed__part {
+  position: absolute;
+  top: -16px;
+  left: 9px;
+  width: 65px;
+  height: 20px;
+  border-radius: 50% 50% 0 0;
+  background: brown;
+  z-index: 0;
+}
+.feed__part:before {
+  position: absolute;
+  top: -8px;
+  left: 21px;
+  width: 41px;
+  height: 24px;
+  border-radius: 50% 50% 0 0;
+  background: brown;
+  z-index: 0;
+}
+
+label {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: 10%;
+}
+
+@keyframes fase {
+  0%, 50%, 100% {
+    transform: translateY(-0.1vh) rotate(0.2deg);
+  }
+  15%, 65% {
+    transform: translateY(0.3vh) rotate(-0.2deg);
+  }
+}
+@-webkit-keyframes fase {
+  0%, 50%, 100% {
+    transform: translateY(-0.1vh) rotate(0.2deg);
+  }
+  15%, 65% {
+    transform: translateY(0.3vh) rotate(-0.2deg);
+  }
+}
+@keyframes tail {
+  0% {
+    transform: 30deg;
+  }
+  100% {
+    transform: 70deg;
+  }
+}
+@-webkit-keyframes tail {
+  0% {
+    transform: 30deg;
+  }
+  100% {
+    transform: 70deg;
+  }
+}
+@-webkit-keyframes ball {
+  0% {
+    transform: translateY(145px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes ball {
+  0% {
+    transform: translateY(145px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: #333;
+  cursor: pointer;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type=checkbox] + label:before {
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 5px;
+  opacity: 0.6;
+  border: 1px solid #333;
+  transition: all 0.12s, border-color 0.08s;
+}
+
+input[type=checkbox]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+}
+
+.text {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: 10%;
+  font-size: 40px;
+  text-align: center;
+  color: #333;
+}

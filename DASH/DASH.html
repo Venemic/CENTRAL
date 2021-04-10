@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <style>
+   @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+html,
+body {
+  
+  height: 100%;
+  align-content: center;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+#loader{
+  /**/
+  background: radial-gradient(#222922, #000500);
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  overflow: hidden;
+  padding: 30px 0 0 30px;
+  text-align: center;
+  height: 100%;
+  align-content: center;
+}
+
+.word {
+  bottom: 0;
+  font-size: 2.5em;
+  height: 2.5em;
+  left: 0;
+  line-height: 2.5em;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
+  top: 0
+}
+
+.word span {
+  display: inline-block;
+  transform: translateX(100%) scale(0.9);
+  transition: transform 500ms;
+}
+
+.word .done {
+  color: #6f6;
+  transform: translateX(0) scale(1);
+}
+
+.overlay {
+ 
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
+  background-size: 1000px 2px;
+  /*filter: blur(8px);
+  -webkit-filter: blur(8px);*/
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.image-swap {
+    width: 64px;
+    height: 64px;
+    background-image: url('../assets/img/GIFS/Static/pencil.png');
+    background-size: 100%;
+    background-position: center center;
+     animation: ease-in-out;
+    animation-duration: 3s;
+}
+.image-swap:hover {
+  
+    background-image: url('../assets/img/GIFS/Dynamic/pencil.gif');  
+}
+#img{
+  width: 400px;
+    height: 400px;
+    background-image: url('../assets/img/GIFS/Dynamic/Internet Day.gif');
+    background-size: 100%;
+    background-position: center center;
+     animation: ease-in-out;
+    animation-duration: 3s;
+}
+#img:hover{
+  background-image: url('../assets/img/GIFS//Dynamic/Telecommuting.gif');
+}
+  </style>
+<head>
+
+  <meta charset="UTF-8">
+  <title id="title">User</title>
+  <link href="../assets/img/favicon_io/favicon-32x32.png" rel="icon">
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'><link rel="stylesheet" href="./style.css">
+  <script src="../Login_Page/js/form.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+</head>
+<body onload="check();checklogin();" id="general">
+
+  <div id="loader">
+  <div class="word" >LOADING...</div>
+  <div class="overlay"></div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'></script> 
+  <script src="../LOADER/script.js"></script>
+
+  <div class="page-wrapper chiller-theme toggled" id="Main" style="display: none;">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#" style="margin-left: 65px;" class="zoom">Bagpack</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img src="../assets/img/Astronaut.png" id="profileimg" >
+        </div>
+        <div class="user-info">
+          <span class="user-name" id="nameside">
+            <strong>Name</strong>
+          </span>
+          <span class="user-role" id="status"></span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li >
+            <a href="../index.html">
+              <i class="fa fa-home"></i>
+              <span>Home</span>
+              <span class="badge badge-pill badge-warning" id="db">Active</span>
+            </a>
+            <!--
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Dashboard 1
+                    <span class="badge badge-pill badge-success">Pro</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Dashboard 2</a>
+                </li>
+                <li>
+                  <a href="#">Dashboard 3</a>
+                </li>
+              </ul>
+            </div>-->
+          </li>
+          
+          <li class="sidebar-dropdown" id="stdclasses" hidden>
+            <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Class</span>
+              <span class="badge badge-pill badge-warning" >Active</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#" onclick="lively()">Live Class
+                    <span  class="badge badge-pill badge-danger">Live</span> </a>
+                </li>
+                <li>
+                  <a href="#" onclick="addclass()">Add Class Code</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+          <li>
+            <a href="../profile.html">
+              <i class="fa fa-user"></i>
+              Profile
+              <span class="badge badge-pill badge-warning">Active</span>
+            </a>
+            <!--
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">General</a>
+                </li>
+                <li>
+                  <a href="#">Panels</a>
+                </li>
+                <li>
+                  <a href="#">Tables</a>
+                </li>
+                <li>
+                  <a href="#">Icons</a>
+                </li>
+                <li>
+                  <a href="#">Forms</a>
+                </li>
+              </ul>
+            </div>-->
+          </li>
+          
+          <li >
+            <a href="#" onclick="seeATD()" id="attend">
+              <i class="fa fa-chart-line"></i>
+              Attendance
+              <span class="badge badge-pill badge-warning">Active</span>
+            </a>
+            <!--
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Pie chart</a>
+                </li>
+                <li>
+                  <a href="#">Line chart</a>
+                </li>
+                <li>
+                  <a href="#">Bar chart</a>
+                </li>
+                <li>
+                  <a href="#">Histogram</a>
+                </li>
+              </ul>
+            </div>-->
+          </li>
+          <li >
+            <a href="https://classroom.google.com/u/1/h">
+              <i class="fa fa-globe"></i>
+              <span>GCR</span>
+            </a>
+            <div class="sidebar-submenu">
+            </div>
+            <!--
+          </li>
+          <li class="header-menu">
+            <span>Extra</span>
+          </li>-->
+          <li>
+           <!-- <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Documentation</span>
+              <span class="badge badge-pill badge-primary">Beta</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+          </li>-->
+          <li id="createclss" >
+            <a href="#" onclick="crclass()">
+              <i class="fa fa-plus"></i>
+              <span >Create</span>
+            </a>
+          </li>
+          <li id="classes">
+            <a href="#" onclick="classes()">
+              <i class="fa fa-university"></i>
+              <span >Classes</span>
+            </a>
+          </li>
+
+          <li id="enrolled">
+            <a href="#" onclick="enrolled()">
+              <i class="fa fa-list-alt"></i>
+              <span >Enrolled Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="logout()">
+              <i class="fa fa-folder fa fa-power-off"></i>
+              <span >Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fa fa-bell"></i>
+        <span class="badge badge-pill badge-warning notification">3</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-envelope"></i>
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container" >
+      <div style="display:inline-flex">
+      <hr>
+      <h2 id="naming"></h2>
+      <div >
+        <div class="image-swap" style="margin-top: -20px;"></div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="form-group col-md-12"> 
+          <p style="font-weight: bolder;color: rgb(71, 70, 70);font-style: italic;">“Learning is not attained by chance. It must be sought for with ardor and attended with diligence.” – Abigail Adams</p>
+          <p>It is never too late, Join a class to continue your e-learning experience !</p>
+        </div>
+        <div class="form-group col-md-12">
+          <iframe src="" frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
+          <iframe src="" frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
+        </div>
+        <div class="form-group col-md-12">
+          
+          <img src="../assets/img/bag.png" class="rounded float-left" style="width: 300px;margin-top: -170px;margin-left: 470px;margin-bottom: -50px;">
+          <img src="../assets/img/lappy.png" class="rounded float-left" style="width: 330px;margin-top: -170px;margin-left: 600px;margin-bottom: -50px;">
+         
+          <!--<div class="alert alert-success" role="alert">
+            <h4 class="alert-heading" >ATTENTION USER!</h4>
+            <p>
+              <a href="" target="_blank">npm</a> <a href="" target="_blank">
+                <img alt="GitHub stars" src="" />
+              </a></p>
+            <a href="" target="_blank" class="btn btn-sm btn-primary mr-2">
+              Github</a>
+            <a href="" target="_blank" class="btn btn-sm btn-success">
+              Demo</a>
+          </div>-->
+          
+        </div>
+      </div>
+      <!--<h5>More templates</h5>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="card rounded-0 p-0 shadow-sm">
+            <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
+            <div class="card-body text-center">
+              <h6 class="card-title">Angular Pro Sidebar</h6>
+              <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">Github</a>
+              <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">Demo</a>
+              <hr>
+              <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
+                <img alt="GitHub stars" src="https://img.shields.io/github/stars/azouaoui-med/angular-pro-sidebar?style=social" />
+              </a>
+              <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
+                <img alt="GitHub stars" src="https://img.shields.io/github/forks/azouaoui-med/angular-pro-sidebar?style=social" />
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="card rounded-0 p-0 shadow-sm">
+            <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG" class="card-img-top rounded-0" alt="Angular pro sidebar">
+            <div class="card-body text-center">
+              <h6 class="card-title">Angular Dashboard</h6>
+              <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">Github</a>
+              <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">Demo</a>
+              <hr>
+              <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
+                <img alt="GitHub stars" src="https://img.shields.io/github/stars/azouaoui-med/lightning-admin-angular?style=social" />
+              </a>
+              <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
+                <img alt="GitHub stars" src="https://img.shields.io/github/forks/azouaoui-med/lightning-admin-angular?style=social" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>-->
+      <div class="container" id="min" style="margin-top: -80px;" hidden>
+        <h2>Create Class</h2>
+        <p>Quick <code>make an e-classroom</code>, and start teaching now !</p>
+        <p style="font-style: italic;font-weight: bold;color: grey;">"Society is composed of two great classes — those who have more dinners than appetite, and those who have more appetite than dinners."</p>
+        <form  class="needs-validation" novalidate>
+          <div class="form-group">
+            <label for="uname">Class Name:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Class Name" name="uname" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Duration:</label>
+            <input type="time" class="form-control" id="dur" placeholder="Enter password" name="pswd" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Meet-Link:</label>
+            <input type="url" class="form-control" id="meet" placeholder="https://meet.google.com" name="pswd" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Day Order:</label>
+            <input type="number" class="form-control" id="DO" placeholder="DAY ORDER" name="pswd" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <div class="valid-feedback">Valid.</div>
+               <label class="form-check-label" style="background-color: #99999983;margin-left: -20px;width: 49px;" id="coding">CODE</label>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="makeclasscode()">Generate</button>
+          <button type="button" class="btn btn-success" onclick="create()" id="copy" disabled>Submit</button>
+        </form>
+      </div>
+ 
+        <div class="container">
+          <div id="std" >
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Faculty Name</th>
+                <th scope="col">Duration</th>
+                <th scope="col" >Meet</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody  id="app">
+             <tr></tr>
+            </tbody>
+          </table>
+        </div>
+        <form id="addc" hidden>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter Code</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="CLASS CODE">
+            <small id="emailHelp" class="form-text text-muted">You can see the added class in <span style="color: red;">Live</span> Section</small>
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="codeclass()">Add</button>
+        </form>
+        <!-- ATTENDANCE TABLE ONLY FOR STUDENT -->
+        <table class="table table-striped" id="studentatdnce" hidden>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Subject</th>
+              <th scope="col">Attendance</th>
+            </tr>
+          </thead>
+          <tbody id="app1">
+            <tr></tr>
+          </tbody>
+          
+        </table>  
+        <template id="StudentAtd">
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+        </template>
+        <!-- END OF ATTENDANCE TABLE -->
+
+        <!-- CLASSES FACULTY CREATED -->
+        <table class="table table-striped" id="classcreated" hidden>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Day Order</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Meet-Link</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="app2">
+            <tr></tr>
+          </tbody>
+          
+        </table>  
+        <template id="classcreated1">
+          <tr>
+            <td>1</td>
+            <td>SEPM</td>
+            <td>LINK</td>
+            <td>Duration</td>
+          </tr>
+        </template>
+
+        <!-- ENROLLED STUDENT -->
+         <table class="table table-striped" id="enrolled_table" hidden>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col">Register Number</th>
+            </tr>
+          </thead>
+          <tbody id="app3">
+            <tr></tr>
+          </tbody>
+          
+        </table>  
+        <template id="enrolledstd">
+          <tr>
+            <td>SHIVAM</td>
+            <td>RA</td>
+          </tr>
+        </template>
+        <!-- END OF ENROLLED STUDENTS -->
+        </div>
+        <div style="display: flex;">
+        <div>
+
+        </div>
+        <div id="img"></div>
+        
+      </div>
+        <template id="sample"> 
+          <tr>
+            <td>Subject Name</td>
+            <td>Name</td>
+            <td>Duration</td>
+            <td>Meet</td>
+            <td><a href="../Scanning-Page/scan.html"><img src="../assets/img/live.gif"  style="width: 40px;height: 40px;"></a></td>
+            </tr>
+        </template>
+        
+      <footer class="text-center">
+        <div class="mb-2">
+          <small>
+            © 2021 made with<img src="../assets/img/GIFS/Dynamic/CODE.gif" style="width: 60px;"> by - <a rel="noopener noreferrer" href="../index.html#team" style="color: rgb(69, 219, 106);">
+              TEAM-4
+            </a>
+          </small>
+        </div>
+
+        <div>
+          <a href="#" target="_blank">
+            <img alt="" src="" />
+          </a>
+          <a href="#" target="_blank">
+            <img alt="" src="" />
+          </a>
+        </div>
+      </footer>
+
+    </div>
+
+  </main>
+  <main>
+    
+  </main>
+  <!-- page-content" -->
+</div>
+
+<!-- page-wrapper -->
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js'></script><script  src="./script.js"></script>
+
+</body>
+<script>
+	var firebaseConfig = {
+        apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+        authDomain: "central-4a4fe.firebaseapp.com",
+        databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+        projectId: "central-4a4fe",
+        storageBucket: "central-4a4fe.appspot.com",
+        messagingSenderId: "505151711668",
+        appId: "1:505151711668:web:94781827c46abd27c3eae1",
+        measurementId: "G-QZ62YZFXX5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth =firebase.auth();
+function logout(){
+  auth.signOut().then(()=>{
+    location.replace('../Login_Page/index.html');
+  })
+   
+}
+ 
+</script>
+<script>
+  var interval = setInterval(function() {
+    if(document.readyState === 'complete') {
+        clearInterval(interval);
+        setTimeout(function(){
+           showPage();
+         }, 2000);
+    }    
+}, 100);
+  /*function ok() {
+    setTimeout(function(){
+           showPage()
+         }, 3000);
+  }*/
+  
+  function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("Main").style.display = "block";
+  }
+  function check(){
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+           var x=document.getElementById("title");
+  var d;
+  var user = firebase.auth().currentUser;//Select current user
+  var email_id = user.email;//Fetch current user's email
+  var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+  var ref = firebase.database().ref("Student");
+  ref.once("value")
+    .then(function(snapshot) {
+       d = snapshot.child(name1).exists(); // false
+       if(d){
+          x.innerHTML="Student-Dashboard";
+          firebase.database().ref('Student/'+name1).on('value',function(snapshot){
+                document.getElementById('naming').innerHTML= "Welcome, "+snapshot.val().Full_Name;
+                document.getElementById('nameside').innerHTML= snapshot.val().Full_Name;
+                document.getElementById("profileimg").src = snapshot.val().Image_url;
+                 if(snapshot.val().Status=='S'){
+                  document.getElementById('status').innerHTML="Student";
+                  document.getElementById('stdclasses').hidden=false;
+
+                  document.getElementById('classes').hidden=true;
+                  document.getElementById('enrolled').hidden=true;
+                  document.getElementById('createclss').hidden=true;
+                }   
+              });
+          document.getElementById("std").hidden=false;
+          showContent();
+         }
+        else
+          {
+          
+          x.innerHTML="Faculty-Dashboard";
+          firebase.database().ref('Faculty/'+name1).on('value',function(snapshot){
+                document.getElementById('naming').innerHTML= "Welcome, "+snapshot.val().Full_Name;
+                document.getElementById('nameside').innerHTML= snapshot.val().Full_Name;
+              document.getElementById("profileimg").src = snapshot.val().Image_url;
+               if(snapshot.val().Status=='F')
+                {
+                  document.getElementById('status').innerHTML="Faculty";
+                  document.getElementById("min").hidden=false;
+                  document.getElementById("std").hidden=true;
+                  document.getElementById("attend").hidden=true;
+                }
+              });
+         }
+    });
+    
+        } 
+    });
+    
+      }
+  </script>
+  <script>
+    var code;
+    //CODE-Generation
+function makeclasscode() {
+  var x1=document.getElementById("uname").value;
+  var x3=document.getElementById("dur").value;
+  var x4=document.getElementById("meet").value;
+  var x5=document.getElementById("DO").value;
+  if(x1||x3||x4||x5)
+        {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 4; i++)
+          {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+          }
+          code=text;
+          document.getElementById("coding").innerHTML=text;
+          document.getElementById("copy").disabled=false;
+            }
+        else
+        {
+          window.alert('Please fill the respected entries to create the code.');
+        }
+  
+}
+    </script>
+  <script>
+    function create(){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+  var email_id = user.email;//Fetch current user's email
+  var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+  var x1=document.getElementById("uname").value;
+  var x3=document.getElementById("dur").value;
+  var x4=document.getElementById("meet").value;
+  var x5=document.getElementById("DO").value;
+        if(x1||x3||x4||x5)
+        {
+          firebase.database().ref('Subject-Room/'+code).set({
+              Subject_Name: x1,
+              Faculty_Name: name1,
+              Duration: x3,
+              Meet_Link: x4,
+              Day_Order: x5
+            });
+
+            firebase.database().ref('Faculty/'+name1+'/Class-Rooms/'+x5).update({
+            CODE: code
+          });
+          window.alert('Class is now created');
+           window.location.reload();
+        }else
+        {
+          window.alert('Please fill the respected entries to submit the form.')
+        }
+          
+         }
+        
+      }
+    });
+   
+            // sendVerificationEmail();
+          }
+  </script>
+  <script>
+    function showContent() {
+      var temp,copyHTML,td;
+      var user = firebase.auth().currentUser;
+      var email_id = user.email;//Fetch current user's email
+      var name1   = email_id.substring(0, email_id.lastIndexOf("@"));
+      firebase.database().ref('Student/'+name1+'/SUBSCRIBE').on('value', function(snapshot){
+        snapshot.forEach(function(childNodes){
+              var cod=childNodes.val().CODE;
+              firebase.database().ref('Subject-Room/'+cod).on('value', function(snapshot){
+          temp = document.getElementById("sample").content;
+                copyHTML = document.importNode(temp,true);
+                td = copyHTML.querySelectorAll("td");
+                td[0].textContent = snapshot.val().Subject_Name; 
+                firebase.database().ref('Faculty/'+snapshot.val().Faculty_Name).on('value', function(snapshot){
+                  td[1].textContent = snapshot.val().Full_Name;
+                });
+                td[2].textContent = snapshot.val().Duration;
+                td[3].textContent = snapshot.val().Meet_Link; 
+                document.getElementById("app").appendChild(copyHTML);
+              });
+              });
+            }); 
+    }
+</script>
+<script>
+  function lively(){
+    document.getElementById("std").hidden=false;
+    document.getElementById("addc").hidden=true;
+    document.getElementById("studentatdnce").hidden=true;
+  }
+  function addclass(){
+    var x=document.getElementById("addc");
+    document.getElementById("std").hidden=true;
+    document.getElementById("studentatdnce").hidden=true;
+    if(x.hidden==true)
+    {
+      x.hidden=false;
+    }
+    else
+    {
+      x.hidden=true;
+    }
+
+  }
+  function codeclass(){
+    var x = document.getElementById("exampleInputEmail1").value,Do,nm,val=0,fac,std,reg;
+    if(x){
+      var ref = firebase.database().ref("Subject-Room");
+  ref.once("value")
+    .then(function(snapshot) {
+       d = snapshot.child(x).exists(); // false
+       if(d){
+        firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+                var email_id = user.email;//Fetch current user's email
+                var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+               firebase.database().ref('Subject-Room/'+x).on('value',function(snapshot){
+                Do = snapshot.val().Day_Order;
+                nm = snapshot.val().Subject_Name;
+                fac = snapshot.val().Faculty_Name;
+              });
+            firebase.database().ref('Student/'+name1+'/SUBSCRIBE/'+Do).update({
+            CODE: x
+          });
+          firebase.database().ref('Student/'+name1+'/Enrolled_Subjects').set({
+            Subject: nm,
+            Attendance: val
+          });
+           firebase.database().ref('Student/'+name1).on('value',function(snapshot){
+             std = snapshot.val().Full_Name;
+             reg = snapshot.val().Register_Number;
+          });
+          var ref = firebase.database().ref("Faculty");
+          var postsRef = ref.child(fac+'/Enrolled-Student/'+x);
+          var newPostRef = postsRef.push();
+          newPostRef.set({
+            Student_Name: std,
+            Reg_No: reg
+          });
+          
+         }
+        
+      }
+    });
+    window.alert('Class is Added');
+         }
+        else
+        {
+          window.alert('Enter a valid Class Code');
+  
+        }
+    });
+  }
+  else{
+    window.alert('Enter Class Code');
+   
+  }
+  }
+</script>
+<script>
+  var flag=0;
+  function seeATD()
+  {
+      document.getElementById("addc").hidden=true;
+      document.getElementById("std").hidden=true;
+     document.getElementById("studentatdnce").hidden=false;
+     flag = flag +1;
+     if(flag<=1){
+     firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+        var email_id = user.email;//Fetch current user's email
+        var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+        var x1=document.getElementById("uname").value;
+      var user = firebase.auth().currentUser;
+     var email_id = user.email;//Fetch current user's email
+     var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+
+     var t,copy,td;
+
+     /* firebase.database().ref("Student/"+name1+'/Enrolled_Subjects').on('value', function(snapshot){
+        snapshot.forEach(function(childNodes){
+          t = document.getElementById("StudentAtd").content;
+                copyH = document.importNode(t,true);
+                td = copyH.querySelectorAll("td");
+                td[0].textContent = childNodes.val().Subject; 
+                td[1].textContent = childNodes.val().Attendance;
+                document.getElementById("app1").appendChild(copyH);
+});
+});*/
+        firebase.database().ref('Student/'+name1+ '/Enrolled_Subjects').on('value',function(snapshot){
+          t = document.getElementById("StudentAtd").content;
+                copyH = document.importNode(t,true);
+                td = copyH.querySelectorAll("td");
+                td[0].textContent = snapshot.val().Subject; 
+                td[1].textContent = snapshot.val().Attendance;
+                document.getElementById("app1").appendChild(copyH);
+              });
+        }
+      }
+      
+        });
+  }
+}
+</script>
+<script>
+  var count=0;
+  function classes(){
+    var x=document.getElementById('classcreated');
+    if(x.hidden==true){
+      count = count+1;
+      x.hidden=false;
+      document.getElementById('min').hidden=true;//create class
+    document.getElementById('classes').hidden=false;//classes
+    document.getElementById('enrolled_table').hidden=true;
+      if(count<=1){
+   
+    firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+        var email_id = user.email;//Fetch current user's email
+        var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+        var t,copy,td;
+
+        firebase.database().ref('Faculty/'+name1+'/Class-Rooms').on('value', function(snapshot){
+        snapshot.forEach(function(childNodes){
+
+              var cod=childNodes.val().CODE;
+
+              firebase.database().ref('Subject-Room/'+cod).on('value', function(snapshot){
+                temp = document.getElementById("classcreated1").content;
+                copyHTML = document.importNode(temp,true);
+                td = copyHTML.querySelectorAll("td");
+                td[0].textContent = snapshot.val().Day_Order; 
+                td[1].textContent = snapshot.val().Subject_Name;
+                td[2].textContent = snapshot.val().Meet_Link;
+                td[3].textContent = snapshot.val().Duration; 
+                document.getElementById("app2").appendChild(copyHTML);
+              });
+              });
+            }); 
+        }
+      }
+        });
+    }
+  }
+  }
+
+  function enrolled(){
+     var x=document.getElementById('enrolled_table');
+    if(x.hidden==true){
+        x.hidden=false; 
+      document.getElementById('min').hidden=true;//create class
+      document.getElementById('classcreated').hidden=true;//classes
+    firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+        var email_id = user.email;//Fetch current user's email
+        var name1   = email_id.substring(0, email_id.lastIndexOf("@"));//Trim email to get name id
+        var t,copy,td;
+        firebase.database().ref('Faculty/'+name1+'/Enrolled').on('value', function(snapshot){
+                temp = document.getElementById("enrolledstd").content;
+                copyHTML = document.importNode(temp,true);
+                td = copyHTML.querySelectorAll("td");
+                td[0].textContent = snapshot.val().Student_Name; 
+                td[1].textContent = snapshot.val().Register_Number;
+                document.getElementById("app3").appendChild(copyHTML);
+            }); 
+        }
+      }
+        });
+    }
+
+  }
+  function crclass(){
+    var x= document.getElementById('min');//create class
+    if(x.hidden==true){
+      x.hidden=false;
+    }
+    document.getElementById('classcreated').hidden=true;//classes
+    document.getElementById('enrolled_table').hidden=true;
+  }
+</script>
+</html>

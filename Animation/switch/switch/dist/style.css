@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* height: 100%; */
+  /* width: 100vw; */
+}
+html,
+body {
+  height: 100vh;
+  background-color: rgb(91, 56, 115);
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.switch-background {
+  background-color: rgb(91, 56, 115);
+  height: 50px;
+  width: 20px;
+  border-radius: 100px;
+  margin-top: 3em;
+  /* padding-left: 15px;
+  padding-top: 5px; */
+  /* box-shadow: 12px 12px 22px gray, inset 12px 12px 10px #402955; */
+  box-shadow: 5px 5px 35px rgb(56, 32, 72),
+    -5px -5px 35px rgba(212, 176, 235, 0.636);
+  transition: box-shadow 1s ease-in;
+}
+.off-shadow {
+  box-shadow: 5px 5px 35px rgb(56, 32, 72),
+    -5px - 5px 35px rgba(212, 176, 235, 0.636);
+}
+.on-shadow {
+  /* visibility: hidden; */
+  box-shadow: 5px 5px 35px rgb(99, 17, 46),
+    -5px -5px 35px rgba(255, 217, 245, 0.468);
+  /* box-shadow: 12px 12px 22px gray, inset 12px 12px 10px #402955; */
+}
+.innerSwitch {
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  background-color: #6ef0e1;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.face {
+  width: 120px;
+  padding-bottom: 20px;
+}

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  body::-webkit-scrollbar {
+    display: none;
+}
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Central - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon_io/favicon.ico" rel="icon">
+  <link href="assets/img/favicon_io/favicon-16x16.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!--CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+  <script src='https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js'></script>
+  
+</head>
+
+<body onload="checkstate()">
+  
+  <!-- ======= Header <p id="token"></p>======= -->
+  
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">CENTRAL</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#faq">F.A.Q</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+          <li id="in" style="display: none">
+            <a type="button" href="Login_Page/index.html" >Sign in</a>
+          </li>
+          <li id="up" style="display: none">
+            <a type="button" href="Login_Page/Register.html" >Sign up</a>
+          </li>
+          <li id="db" style="display: none">
+            <a type="button" href="DASH/DASH.html" >Dashboard</a>
+          </li>
+          <script>
+              
+          </script>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h3>Welcome to <strong>Central 1.0</strong></h3>
+      <h1>We're Creative Squad</h1>
+      <h2></h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <h3>What is <span>Central</span> ?</h3>
+          <p>Central is full time web service that  brilliantly simplifies the problem of tracking and tallying the attendance information.</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              A facial recognition attendance system uses facial recognition technology to identify and verify a person using the person's facial features and automatically mark attendance.
+              The software can be used for different groups of people such as employees, students, etc. The system records and stores the data in real-time.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> <p style="color:#2a9d8f"><strong>Touchless Attendance System - Ensure COVID-safe practices</strong></p></li>
+              <li><i class="ri-check-double-line"></i> <p style="color:#2a9d8f"><strong>Access Control Integration - We Make It Super Simple</strong></p></li>
+              <li><i class="ri-check-double-line"></i> <p style="color:#2a9d8f"><strong>The System Is Pretty Flexible - You Get To Choose</strong></p></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Employee and visitor management systems are not going to look the same again. 
+              Digital touch-based visitor management systems and fingerprint biometric systems for authentication are soon going to be replaced by touchless facial recognition technology. 
+              It will simplify the day-to-day operational challenges that businesses and organizations across sectors face. We are well-placed to meet the current demands of the industry driven by the coronavirus pandemic. 
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <h3>We do offer awesome <span>Services</span></h3>
+          <p>Customer service is about empathy.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title">Live-Class</h4>
+              <p class="description">User can see ongoing classes or can change them.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title">Track Attendance</h4>
+              <p class="description">User can trace the attendance marked for undertaken classes.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title">High Accuracy</h4>
+              <p class="description">With high accuracy rates of software, it can completely remove the chances of giving proxies.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title">All-in-One</h4>
+              <p class="description">This system can be used in every type of organizations</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+   
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>"Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution."</h3>
+          <!--
+          <p></p>
+          <a class="cta-btn" href="#">Call To Action</a>
+        -->
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+   
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>F.A.Q</h2>
+          <h3>Frequently Asked <span>Questions</span></h3>
+        </div>
+
+        <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">What is the main aim of this website? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Our main aim of this Website to make flexible system which provides full time web services that brilliantly simplifies the problem of tracking and tallying the attendance information.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What are the features it covers? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                <strong>Student</strong><br>
+                1.Touchless attendance system<br>
+                2.Responsive time-table for fast access to the classes.<br>
+                3.Easy to track Attendance.<br><br>
+                <strong>Faculty</strong><br>
+                 1.Quick class creation.<br>
+                 2.Convenient to monitor attendance reports.<br>
+                 3.No need to mannualy mark the attendance.<br>
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Is this Web-App mobile friendly? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Yes it is mobile friendly no issues in that you can use it as usually like the way you use in your desktop.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">What are the entry requirements?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                The main requirements are Email, Name, Password and a image file of your Face.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">What about my personal data providing into this Web-App?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Your data is secured in Google's Firebase no need to worry. 
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Why can't I sign in?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                <strong>Problems</strong><br>
+                1) You forgot your password <br>
+                2) You forgot your username or the email address you use to sign in.<br>
+                3) Someone might be using your account.<br>
+                4) You are having problem with 2 step verification.<br>
+                5) You can’t sign in from third party service.<br><br>
+                <strong>Solutions</strong><br>
+                1.Restart the Web-App.<br>
+                2.Check your Network Connection.<br>
+                3.Check web-cam is working or not.<br>
+                4.Check password is correct or not.<br>
+                5.Check your image is clear or not.<br>
+        
+              </p>
+            </div>
+          </li>
+            <li>
+            <div data-bs-toggle="collapse" href="#faq7" class="collapsed question">My account has been suspended. What can be the reasons?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq7" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Admin should have monitored any unauthorized activity, malpractices or faculty might have reported your account.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div data-bs-toggle="collapse" href="#faq8" class="collapsed question">How do I change and check my account details?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq8" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                After login into your account,in Dashboard's navigation bar go to Options->Profile->Edit.
+                In this way you can change your<strong> password </strong>, <strong>profile image </strong>and many more details if you want.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div data-bs-toggle="collapse" href="#faq9" class="collapsed question">Whom/where should I proceed with if I am having any problem regarding access with this Web-App?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq9" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                In Dashboard's navigation bar go to Options->Help!. And there will be many options regarding help listed there.
+            </div>
+          </li>
+          <li>
+            <div data-bs-toggle="collapse" href="#faq10" class="collapsed question">Will it cost to use this Web-App?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq10" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                No we provide you full time free webservices.You just need a stable internet connection.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <h3>Our Hardworking <span>Team</span></h3>
+          <p>"None of us is as smart as all of us."</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Shivam Singh</h4>
+                <span>Coder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-3 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Siddharth Chakraborty</h4>
+                <span>Leader</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Kolla Seshu Kiran</h4>
+                <span>Learner</span>
+              </div>
+            </div>
+          </div>
+
+         
+
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+      
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Central</h3>
+            <p>
+              ABC Town <br>
+              EFG City, Block-123456789<br>
+              XYZ State <br><br>
+              <strong>Phone:</strong> +91 8957363061<br>
+              <strong>Email:</strong> shivamsingh6318@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">1</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">2</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">3</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">4</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">5</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Stay Updated!</p>
+            <form action="https://formspree.io/f/myylgrbv" method="POST" target="_blank">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Central</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="#">Creative Squad</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+<script>
+  var firebaseConfig = {
+        apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+        authDomain: "central-4a4fe.firebaseapp.com",
+        databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+        projectId: "central-4a4fe",
+        storageBucket: "central-4a4fe.appspot.com",
+        messagingSenderId: "505151711668",
+        appId: "1:505151711668:web:94781827c46abd27c3eae1",
+        measurementId: "G-QZ62YZFXX5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      /*
+      const messaging=firebase.messaging();
+
+function IntitalizeFireBaseMessaging() {
+    messaging
+        .requestPermission()
+        .then(function () {
+            console.log("Notification Permission");
+            return messaging.getToken();
+        })
+        .then(function (token) {
+            console.log("Token : "+token);
+            document.getElementById("token").innerHTML=token;
+        })
+        .catch(function (reason) {
+            console.log(reason);
+        });
+}
+
+messaging.onMessage(function (payload) {
+    console.log(payload);
+    const notificationOption={
+        body:payload.notification.body,
+        icon:payload.notification.icon
+    };
+
+    if(Notification.permission==="granted"){
+        var notification=new Notification(payload.notification.title,notificationOption);
+
+        notification.onclick=function (ev) {
+            ev.preventDefault();
+            window.open(payload.notification.click_action,'_blank');
+            notification.close();
+        }
+    }
+
+});
+messaging.onTokenRefresh(function () {
+    messaging.getToken()
+        .then(function (newtoken) {
+            console.log("New Token : "+ newtoken);
+        })
+        .catch(function (reason) {
+            console.log(reason);
+        })
+})
+IntitalizeFireBaseMessaging();*/
+function checkstate()
+{
+  
+  var x= document.getElementById("in");
+  var x1= document.getElementById("up");
+  var x2= document.getElementById("db");
+  firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+      x2.style.display = "block";
+      console.log('working0');
+          } 
+        } else {     
+      console.log('working1');
+            x.style.display = "block";
+             x1.style.display = "block";
+        }
+    });
+}
+</script>
+</html>

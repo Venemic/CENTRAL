@@ -1,0 +1,490 @@
+@import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
+$COLOR_BG: #53b2b9;
+$COLOR_WHITE: #fff;
+$COLOR_BLACK: #333;
+$COLOR_RED: #d91e19;
+$COLOR_DOG: #e6b153;
+$COLOR_FEED: brown;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.8s;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    transition: 0.8s;
+  }
+}
+body {
+  background: $COLOR_BG;
+  width: 100%;
+  height: 100%;
+  font-family: "Cute Font", cursive;
+}
+
+.dog-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.dog {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: calc(50% - 55px);
+  width: 110px;
+  height: 175px;
+  &__ear {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    -webkit-animation: fase 0.8s infinite ease-in-out;
+    animation: fase 0.8s infinite ease-in-out;
+    &:before,
+    &:after {
+      width: 20px;
+      height: 40px;
+      border-radius: 50% 50% 0 0;
+      background: $COLOR_DOG;
+    }
+    &:before {
+      right: -35px;
+      transform-origin: top right;
+      -webkit-transform-origin: top right;
+    }
+    &:after {
+      left: -34px;
+      transform-origin: top left;
+      -webkit-transform-origin: top left;
+    }
+  }
+  &__face {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 70px;
+    height: 100px;
+    border-radius: 50px 50px 0 0;
+    background: $COLOR_DOG;
+    -webkit-animation: fase 0.8s infinite ease-in-out;
+    animation: fase 0.8s infinite ease-in-out;
+    &:before {
+      top: 0px;
+      left: 27px;
+      width: 15px;
+      height: 25px;
+      border-radius: 50px 50px 0 0;
+      background: $COLOR_WHITE;
+    }
+    &:after {
+      top: 18px;
+      left: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 30px;
+      background: $COLOR_WHITE;
+    }
+  }
+  &__body {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 70px;
+    height: 100px;
+    background: $COLOR_DOG;
+    z-index: 5;
+    &:before {
+      top: 20px;
+      left: 20px;
+      width: 30px;
+      height: 80px;
+      border-radius: 50px 50px 0 0;
+      background: $COLOR_WHITE;
+    }
+    &:after {
+      top: -9px;
+      width: 100%;
+      height: 10px;
+      background: $COLOR_RED;
+      -webkit-animation: fase 0.8s infinite ease-in-out;
+      animation: fase 0.8s infinite ease-in-out;
+    }
+  }
+  &__eye {
+    position: absolute;
+    top: 15px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $COLOR_BLACK;
+    &:before {
+      position: absolute;
+      top: -6px;
+      left: -1px;
+      width: 7px;
+      height: 5px;
+      border-radius: 50%;
+      background: $COLOR_WHITE;
+    }
+    &--left {
+      left: 19px;
+    }
+    &--right {
+      right: 20px;
+    }
+  }
+  &__nose {
+    position: absolute;
+    top: 20px;
+    right: 31px;
+    width: 10px;
+    height: 8px;
+    border-radius: 0 0 10px 10px;
+    background: $COLOR_BLACK;
+    z-index: 5;
+  }
+  &__mouse {
+    position: absolute;
+    top: 30px;
+    left: 27px;
+    width: 15px;
+    height: 2px;
+    background: $COLOR_BLACK;
+    transform-origin: top left;
+    transition: 0.3s;
+    z-index: 5;
+    &:before {
+      height: 0;
+      transition: 0.3s;
+    }
+  }
+  &__tail {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    width: 10px;
+    height: 40px;
+    border-radius: 0 90% 0 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    background: $COLOR_WHITE;
+    overflow: hidden;
+    -webkit-animation: tail 0.8s infinite alternate;
+    animation: tail 0.8s infinite alternate;
+    &:before {
+      top: 0px;
+      right: 4px;
+      width: 10px;
+      height: 40px;
+      border-radius: 0 90% 0 0;
+      background: $COLOR_DOG;
+    }
+  }
+  &__foot {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 40px;
+    background: $COLOR_DOG;
+    z-index: 5;
+    &:before {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 10px;
+      background: $COLOR_DOG;
+    }
+    &--left {
+      left: 10px;
+      border-radius: 90% 0 0 0;
+      &:before {
+        right: 0;
+        border-radius: 90% 0 0 0;
+      }
+    }
+    &--right {
+      right: 10px;
+      border-radius: 0 90% 0 0;
+      &:before {
+        left: 0;
+        border-radius: 0 90% 0 0;
+      }
+    }
+  }
+  .ball {
+    transform: translateY(0);
+    left: -60px;
+  }
+  .feed {
+    display: none;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+#ball:checked {
+  + label + input + label + .dog {
+    .dog__eye {
+      &--left {
+        left: 13px;
+      }
+      &--right {
+        right: 23px;
+      }
+    }
+    .dog__face {
+      border-radius: 45px 50px 0 0;
+      &:before {
+        left: 23px;
+      }
+      &:after {
+        left: 15px;
+      }
+    }
+    .dog__nose {
+      right: 33px;
+    }
+    .dog__ear {
+      &:before {
+        width: 23px;
+      }
+      &:after {
+        width: 16px;
+      }
+    }
+    .dog__tail {
+      -webkit-animation: tail 0.1s infinite alternate;
+      animation: tail 0.1s infinite alternate;
+    }
+    .ball {
+      display: block;
+      -webkit-animation: ball 1s infinite alternate;
+      animation: ball 1s infinite alternate;
+    }
+  }
+}
+
+#feed:checked {
+  + label + .dog {
+    .dog__ear {
+      -webkit-animation: fase 0.3s infinite ease-in-out;
+      animation: fase 0.3s infinite ease-in-out;
+    }
+    .dog__eye {
+      top: 10px;
+    }
+    .dog__face {
+      -webkit-animation: fase 0.3s infinite ease-in-out;
+      animation: fase 0.3s infinite ease-in-out;
+      &:after {
+        top: 10px;
+        left: 18px;
+        width: 32px;
+        height: 45px;
+        background: $COLOR_WHITE;
+      }
+    }
+    .dog__nose {
+      top: 12px;
+    }
+    .dog__mouse {
+      top: 25px;
+      transition: 0.3s;
+      &:before {
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 16px;
+        border-radius: 0 0 10px 10px;
+        background: $COLOR_RED;
+        transition: 0.3s;
+      }
+    }
+    .dog__tail {
+      -webkit-animation: tail 0.1s infinite alternate;
+      animation: tail 0.1s infinite alternate;
+    }
+    .dog__body {
+      &:after {
+        -webkit-animation: fase 0.3s infinite ease-in-out;
+        animation: fase 0.3s infinite ease-in-out;
+      }
+    }
+    .feed {
+      display: block;
+    }
+  }
+}
+
+.ball {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: calc(50% - 90px);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: $COLOR_WHITE;
+  display: none;
+}
+
+.feed {
+  position: absolute;
+  display: inline-block;
+  padding: 0px 40px 20px;
+  z-index: 10;
+  &:before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background: #01579b;
+    -webkit-transform: scaleY(1.3) perspective(0.6em) rotateX(5deg);
+    transform: scaleY(1.3) perspective(0.6em) rotateX(5deg);
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+  }
+  &__part {
+    position: absolute;
+    top: -16px;
+    left: 9px;
+    width: 65px;
+    height: 20px;
+    border-radius: 50% 50% 0 0;
+    background: $COLOR_FEED;
+    z-index: 0;
+    &:before {
+      position: absolute;
+      top: -8px;
+      left: 21px;
+      width: 41px;
+      height: 24px;
+      border-radius: 50% 50% 0 0;
+      background: $COLOR_FEED;
+      z-index: 0;
+    }
+  }
+}
+
+label {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: 10%;
+}
+
+@keyframes fase {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(-0.1vh) rotate(0.2deg);
+    transform: translateY(-0.1vh) rotate(0.2deg);
+  }
+  15%,
+  65% {
+    -webkit-transform: translateY(0.3vh) rotate(-0.2deg);
+    transform: translateY(0.3vh) rotate(-0.2deg);
+  }
+}
+@-webkit-keyframes fase {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(-0.1vh) rotate(0.2deg);
+    transform: translateY(-0.1vh) rotate(0.2deg);
+  }
+  15%,
+  65% {
+    -webkit-transform: translateY(0.3vh) rotate(-0.2deg);
+    transform: translateY(0.3vh) rotate(-0.2deg);
+  }
+}
+
+@keyframes tail {
+  0% {
+    -webkit-transform: rotate(30deg);
+    transform: (30deg);
+  }
+  100% {
+    -webkit-transform: rotate(70deg);
+    transform: (70deg);
+  }
+}
+@-webkit-keyframes tail {
+  0% {
+    -webkit-transform: rotate(30deg);
+    transform: (30deg);
+  }
+  100% {
+    -webkit-transform: rotate(70deg);
+    transform: (70deg);
+  }
+}
+
+@keyframes ball {
+  0% {
+    -webkit-transform: translateY(145px);
+    transform: translateY(145px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: $COLOR_BLACK;
+  cursor: pointer;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:before {
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 5px;
+  opacity: 0.6;
+  border: 1px solid $COLOR_BLACK;
+  -webkit-transition: all 0.12s, border-color 0.08s;
+  transition: all 0.12s, border-color 0.08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.text {
+  position: absolute;
+  top: calc(50% - 90px);
+  left: 10%;
+  font-size: 40px;
+  text-align: center;
+  color: $COLOR_BLACK;
+}

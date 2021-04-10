@@ -1,0 +1,164 @@
+$yellow-white: #f5ed8f;
+$bright-yellow: #fde239;
+$yellow: #ffdc01;
+$yellow-orange: #ffb401;
+$orange: #fdac01;
+$red-orange: #d73e0f;
+$red: #cd4015;
+$dark-red: #c63509;
+$log-color:#723830;
+$shadow:#372113;
+$animationtime:1.5s;
+
+body{
+background-color:$shadow;
+width:100vw;
+height:100vh;
+position:relative;
+}
+
+.cf-container{
+  box-sizing: content-box;
+  width: 300px;
+  height: 300px;
+  position:relative;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+
+  .cf-flame-container{
+    width:100px;
+    height:100px;
+    bottom:0px;
+    position:absolute;
+  }
+  
+  .cf-log-container{
+    width:60%;
+    height:100px;
+    position:absolute;
+    bottom:0px;
+    left:50px;
+  }
+
+  .cf-flame-container#base-fire{
+    
+    .cf-flame:nth-child(1){
+      background:$dark-red;
+      opacity:.95;
+    }
+    .cf-flame:nth-child(2){
+      background:$red;
+      width:100px;
+      height:100px;
+      opacity:.85;
+      left:75px;
+    }
+    .cf-flame:nth-child(3){
+      background:$red-orange;
+      width:60px;
+      height:60px;
+      opacity:.85;
+      left:130px;
+    }
+  }
+  
+  .cf-flame-container:nth-child(2){
+    width:150px;
+    height:150px;
+    bottom:0px;
+    position:absolute;
+
+    .cf-flame{
+    width:75px;
+    height:75px;
+    left:75px;
+    }
+  }
+}
+
+.cf {
+
+  &-log{
+    background:$log-color;
+    width:20px;
+    height:30px;
+    transform-origin:center;
+    position:absolute;
+    bottom:0px;
+    border-radius:.5em;
+    box-shadow: 0 3px 10px $shadow;
+    width:100%;
+    &:nth-child(1){
+    transform:rotate(15deg);
+    }
+    &:nth-child(2){
+    transform:rotate(-15deg);
+    }
+  }
+  &-flame:nth-child(1){
+    background:$yellow-white;
+  }
+  &-flame:nth-child(2){
+    background:$bright-yellow;
+  }
+  &-flame:nth-child(3){
+    background:$yellow;
+  }
+  &-flame:nth-child(4){
+    background: $orange;
+  }
+  &-flame:nth-child(5){
+    background: $red-orange;
+  }
+  &-flame:nth-child(6){
+    background: $red;
+  }
+  &-flame:nth-child(7){
+    background: $dark-red;
+  }
+  &-flame:last-child{
+    background: $dark-red;
+  }
+  &-flame {
+    background: $red;
+    width:100px;
+    height:100px;
+    border-radius:1em;
+    position:absolute;
+    bottom:0px;
+    left:100px;
+  }
+  
+}
+
+#fireNodes2 .cf-flame{
+   animation: flameColor $animationtime ease-out infinite;
+}
+
+@keyframes flameColor {
+   0% {
+     background:$dark-red;
+   }
+   20% {
+     background:$red;
+   }
+  30% {
+      background:$orange;
+   }
+  50% {
+      background:$yellow-orange;
+   }
+  60% {
+      background:$orange;
+   }
+  70% {
+      background:$yellow;
+   }
+  80% {
+      background:$bright-yellow;
+   }
+  100% {
+      background:$yellow-white;
+  }
+}
