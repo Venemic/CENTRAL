@@ -113,7 +113,7 @@ function checklogin(){
             if(fileName == "profile.html"|| fileName == "profile.html#"){
                  window.location.replace('Choice Page/index.html');
             }
-            
+	}
             firebase.database().ref('User/'+name1).set({
               Full_Name : fname,
               Register_Number : rgno,
@@ -123,7 +123,7 @@ function checklogin(){
               Image_url : null
             });
            
-          }
+          
         }      
     }
     
