@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-  body{
-    zoom: 110%;
-  }
+
+.accordion-section .panel-default > .panel-heading {
+    border: 0;
+    background: #f4f4f4;
+    padding: 0;
+}
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-size: 3rem;
+    content: "\f106";
+    color: #1f7de2;
+    float: right;
+    margin-top: -12px;
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "\f107";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: 1.2rem;
+}
 </style>
 <head>
   <meta charset="utf-8">
@@ -62,7 +85,7 @@
         <ul>
           <li data-toggle="tooltip" title="Go to Home"><a class="nav-link scrollto active" href="../index.html" style="font-size: 20px;">Home</a></li>
           <li data-toggle="tooltip" title="Go to Dashboard"><a class="nav-link scrollto" href="../DASH/DASH.html" style="font-size: 20px;">Dashboard</a></li>
-          <li data-toggle="tooltip" title="Time to ask for help."><a class="nav-link scrollto"  href="#services" style="font-size: 20px;" >Help!</a></li>
+          <li data-toggle="tooltip" title="Time to ask for help."><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="font-size: 20px;" >Help!</a></li>
         </ul>    
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -97,6 +120,96 @@
 
   </section><!-- End Hero -->
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 1000PX;margin-left: -200px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"><strong>HELP</strong> !</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Please follow the instructions given below in case of facing any problems</h3>
+        <h5>
+          <li> Adjust the webcam so that the face is visible within the frame of the webcam for the proper recognition.</li>
+          <li>Have a stable network connection while accessing the application.</li>
+          <li>If you are facing issue with face recognition please try to access it repeatedly.</li>
+          <li>Don’t misuse the application.</li>
+        </h5>
+        <section class="accordion-section clearfix mt-3" aria-label="Question Accordions" style="margin-top: -60px;">
+          <div class="container">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  Face is not getting captured by the web cam
+                </a>
+              </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+              <div class="panel-body px-3 mb-4">
+                <p>Keep your face exactly in the frame of the webcam.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  My image is getting blurred while face recognition.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+              <div class="panel-body px-3 mb-4">
+                <p>Use stable and proper network.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  Face is not being recognized.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+              <div class="panel-body px-3 mb-4">
+                <p>Please try to access it repeatedly.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                  After trying so many times still face is not getting recognised.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+              <div class="panel-body px-3 mb-4">
+                <p>Email will be sent and will provide you OTP join using that.</p>
+              </div>
+              </div>
+            </div>
+            </div>
+          
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <main id="main">
     <!-- ======= About Section ======= -->
    
@@ -113,7 +226,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script defer src="assets/js/script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 
