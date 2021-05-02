@@ -492,7 +492,6 @@ body {
                 <th scope="col">Subject</th>
                 <th scope="col">Faculty Name</th>
                 <th scope="col">Duration</th>
-                <th scope="col" >Meet</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
@@ -587,8 +586,7 @@ body {
             <td>Subject Name</td>
             <td>Name</td>
             <td>Duration</td>
-            <td>Meet</td>
-            <td><a href="../Scanning-Page/scan.html"><img src="../assets/img/live.gif"  style="width: 40px;height: 40px;"></a></td>
+            <td><a href="../scan.html"><img src="../assets/img/live.gif"  style="width: 40px;height: 40px;"></a></td>
             </tr>
         </template>
         
@@ -791,7 +789,9 @@ function makeclasscode() {
           }
   </script>
   <script>
+   
     function showContent() {
+      var meet;
       var temp,copyHTML,td;
       var user = firebase.auth().currentUser;
       var email_id = user.email;//Fetch current user's email
@@ -808,11 +808,18 @@ function makeclasscode() {
                   td[1].textContent = snapshot.val().Full_Name;
                 });
                 td[2].textContent = snapshot.val().Duration;
-                td[3].textContent = snapshot.val().Meet_Link; 
+                meet = snapshot.val().Meet_Link;
+                
                 document.getElementById("app").appendChild(copyHTML);
+                getlink(window.meet);
+                const linkme = {
+                            meet_link:meet
+                        };
+                        module.exports = { linkme };
               });
               });
             }); 
+          
     }
 </script>
 <script>
@@ -1019,4 +1026,5 @@ function makeclasscode() {
     document.getElementById('enrolled_table').hidden=true;
   }
 </script>
+<script defer async src="../js/script.js"></script>
 </html>
