@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+.accordion-section .panel-default > .panel-heading {
+    border: 0;
+    background: #f4f4f4;
+    padding: 0;
+}
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-size: 3rem;
+    content: "\f106";
+    color: #1f7de2;
+    float: right;
+    margin-top: -12px;
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "\f107";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: 1.2rem;
+}
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Scanner</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon_io/favicon-32x32.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Krub:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./Scanning-Page/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="./Scanning-Page/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./Scanning-Page/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./Scanning-Page/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./Scanning-Page/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./Scanning-Page/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./Scanning-Page/assets/css/style.css" rel="stylesheet">
+
+    <!-- FIREBASE SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+    <script src='https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js'></script>
+    <script src="./Login_Page/js/form.js"></script>
+    <!-- END OF FIREBASE SCRIPTS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+</head>
+
+<body onload="checklogin()">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top" style="background-color: white;">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div style="display: inline-flex;">
+      <h1 class="logo"><a href="scan.html">CENTRAL KEy</a></h1>
+      <!--<img src="../assets/img/GIFS/Dynamic/Robotics.gif" style="width: 100px;margin-top: -30px;">-->
+    </div>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li data-toggle="tooltip" title="Go to Home"><a class="nav-link scrollto active" href="index.html" style="font-size: 20px;">Home</a></li>
+          <li data-toggle="tooltip" title="Go to Dashboard"><a class="nav-link scrollto" href="DASH/DASH.html" style="font-size: 20px;">Dashboard</a></li>
+          <li data-toggle="tooltip" title="Time to ask for help."><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="font-size: 20px;" >Help!</a></li>
+        </ul>    
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="margin-top: 30px;">
+
+    <div class="container d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+      <h1>JOIN BY SCANNING YOUR FACE</h1>
+      <h2>Today you are looking phenomenol !</h2>
+      <div style="display: inline-flex;">
+      <a href="#" id="btn-start" class="btn-get-started" onclick="startStreaming()">SCAN</a>
+      
+    </div>
+      <!--<img src="assets/img/hero-img.png" class="img-fluid hero-img" alt="" data-aos="zoom-in" data-aos-delay="150">-->
+      <div class="card" style="width: 20rem;margin-top: 20px;" data-aos="zoom-in" data-aos-delay="150">
+        <div >
+        <video id="videoInput" width="400" height="300" muted controls autoplay hidden></video>
+        <img class="card-img-top" src="assets/img/GIFS/Dynamic/People search.gif" alt="Card image cap" id="search">
+        <canvas id="capture" width="400" height="300" hidden></canvas>
+      </div>
+        <div class="card-body" style="margin-top: -20px;margin-bottom: -20px;">
+          <h5 id="result" class="card-title" style="font-weight: bold;margin-top: 10px;background-color: rgb(15, 99, 121);color: rgb(255, 255, 255);">RESULT</h5>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 1000PX;margin-left: -200px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"><strong>HELP</strong> !</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Please follow the instructions given below in case of facing any problems</h3>
+        <h5>
+          <li> Adjust the webcam so that the face is visible within the frame of the webcam for the proper recognition.</li>
+          <li>Have a stable network connection while accessing the application.</li>
+          <li>If you are facing issue with face recognition please try to access it repeatedly.</li>
+          <li>Don’t misuse the application.</li>
+        </h5>
+        <section class="accordion-section clearfix mt-3" aria-label="Question Accordions" style="margin-top: -60px;">
+          <div class="container">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  Face is not getting captured by the web cam
+                </a>
+              </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+              <div class="panel-body px-3 mb-4">
+                <p>Keep your face exactly in the frame of the webcam.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  My image is getting blurred while face recognition.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+              <div class="panel-body px-3 mb-4">
+                <p>Use stable and proper network.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  Face is not being recognized.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+              <div class="panel-body px-3 mb-4">
+                <p>Please try to access it repeatedly.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+              <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                  After trying so many times still face is not getting recognised.
+                </a>
+              </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+              <div class="panel-body px-3 mb-4">
+                <p>Email will be sent and will provide you OTP join using that.</p>
+              </div>
+              </div>
+            </div>
+            </div>
+          
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+   
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./Scanning-Page/assets/vendor/aos/aos.js"></script>
+  <script src="./Scanning-Page/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./Scanning-Page/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./Scanning-Page/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./Scanning-Page/assets/vendor/php-email-form/validate.js"></script>
+  <script src="./Scanning-Page/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./Scanning-Page/assets/js/main.js"></script>
+  <script src="./Scanning-Page/assets/js/script.js"></script>
+  <script defer src="./face-api.min.js"></script>
+    <script defer async src="./js/script.js"></script>
+</body>
+
+
+<!-- FIREBASE API -->
+<script>
+	var firebaseConfig = {
+        apiKey: "AIzaSyDB66uFfEfDtUM_FXAoOtdLfTnKKLzHvMU",
+        authDomain: "central-4a4fe.firebaseapp.com",
+        databaseURL: "https://central-4a4fe-default-rtdb.firebaseio.com",
+        projectId: "central-4a4fe",
+        storageBucket: "central-4a4fe.appspot.com",
+        messagingSenderId: "505151711668",
+        appId: "1:505151711668:web:94781827c46abd27c3eae1",
+        measurementId: "G-QZ62YZFXX5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement: 'bottom',
+        delay: 1000
+    }); 
+  });
+  </script>
+</html>
