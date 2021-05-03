@@ -1,8 +1,8 @@
 const video = document.getElementById('videoInput')
 const reslt = document.getElementById('result')
 var meet_link;
-var flag=0;
 var str = "";
+var str1 = "";
 Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
@@ -54,40 +54,47 @@ async function recognizeFaces() {
               
                 reslt.innerHTML = result.toString();
                 str = result.toString();
-                if(str.includes('unknown')){
-                    flag=0;
-                }
-                else
-                {    
-                    flag=1;
-                }  
-            })
-            if(flag==0) window.alert("Invalid User");
-           
-    
-        }, 1)
-        if(flag==1)
-        {
-            
-            var user = firebase.auth().currentUser;
+                firebase.auth().onAuthStateChanged(function(user) {
+                        if (user) {
+                var user = firebase.auth().currentUser;
                 var email_id = user.email;//Fetch current user's email
                 var name1   = email_id.substring(0, email_id.lastIndexOf("@"));
+                firebase.database().ref('Student/'+name1).on('value', function(snapshot){
+                    str1 = snapshot.val().Full_Name;
+                });
                 firebase.database().ref('Student/'+name1+'/SUBSCRIBE').on('value', function(snapshot){
                   snapshot.forEach(function(childNodes){
                         var cod=childNodes.val().CODE;
                         firebase.database().ref('Subject-Room/'+cod).on('value', function(snapshot){
                           meet_link = snapshot.val().Meet_Link;
-                          window.open(meet_link);
-                          window.alert('Attendance is marked');
+                          console.log(str1);
+                          if(str.includes(str1)){
+                            window.alert('Attendance is marked');
+                            window.open(meet_link);
+                          window.location.reload();
+                        }
+                        else
+                        {    
+                            window.alert("Invalid User\n Try again or check help section to know more !");
+                        }  
+                          
                         });
                         });
                       }); 
-        }  
+                    }
+                });
+            })
+            
+           
+    
+        }, 2000)
+
+            
 
         
     })
     
-
+    
 }
 
 
