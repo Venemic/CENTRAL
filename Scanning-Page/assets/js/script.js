@@ -4,7 +4,7 @@ var btnStop = document.getElementById( "btn-stop" );
 var btnCapture = document.getElementById( "btn-capture" );
 
 // The stream & capture
-var stream = document.getElementById( "stream" );
+var stream = document.getElementById( "videoInput" );
 var capture = document.getElementById( "capture" );
 var snapshot = document.getElementById( "snapshot" );
 var search = document.getElementById( "search" );
