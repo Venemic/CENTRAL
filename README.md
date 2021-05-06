@@ -11,10 +11,13 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ## Getting Started
 
-### Dependencies
+## Tech Stack
 
-* Firebase
-* Face min.js
+- JS,CSS,Bootstrap
+
+- Face min.js API (Realtime web image/video recogniton using javascript)
+
+- Firebase Storage, Authentication and Realtime Database.
 
 ### Installing
 
