@@ -18,8 +18,8 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* You can download this project from the current git repository and run this project on your local host server.
+* You can make a pull request if you have any new idea to make it more professional looking site.
 
 ### Executing program
 
