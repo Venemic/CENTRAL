@@ -52,15 +52,11 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
 ## Screenshots
 
-<div id="slider">
+<div id="slider" style="align:flex">
   <img src="Screenshots/Home.png" alt="alt text 1">
   <img src="Screenshots/Login.png" alt="alt text 2">
   <img src="Screenshots/Register.png" alt="alt text 3">
   <img src="Screenshots/Forget Password.png" alt="alt text 4">
- ![](./Screenshots/Home.png)
-![](./Screenshots/Register.png)
-![](./Screenshots/Login.png)
-![](./Screenshots/Forget Password.png)
 </div>
 
 
