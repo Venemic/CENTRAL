@@ -52,10 +52,14 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
 ## Screenshots
 
-<div id="slider" style="align:flex">
+<div id="slider" >
+  <h3>HOME PAGE</h3>
   <img src="Screenshots/Home.png" alt="alt text 1">
-  <img src="Screenshots/Login.png" alt="alt text 2">
-  <img src="Screenshots/Register.png" alt="alt text 3">
+  <h3>REGISTER PAGE</h3>
+  <img src="Screenshots/Register.png" alt="alt text 2">
+  <h3>LOGIN PAGE</h3>
+    <img src="Screenshots/Login.png" alt="alt text 3">
+  <h3>FORGET PASSWORD PAGE</h3>
   <img src="Screenshots/Forget Password.png" alt="alt text 4">
 </div>
 
