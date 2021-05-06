@@ -4,7 +4,7 @@ A WEB BASED FACIAL ATTENDANCE APPLICATION.
 
 ## Description
 
-𝐂𝐞𝐧𝐭𝐫𝐚𝐥, a facial recognition-based attendance taking web application which keeps a record of attendance and classes for every student and prevents third-party entries. It also gives a super easy managing dashboard to the faculty and requires less maintenance.<br>
+𝐂𝐞𝐧𝐭𝐫𝐚𝐥, a facial recognition-based attendance taking web application which keeps a record of attendance and classes for every student and prevents third-party entries. It also gives a super easy managing dashboard to the faculty and requires less maintenance.
 This web application can cover organizations other than from the education field because it only requires two kinds of users: - 𝐚 𝐇𝐞𝐚𝐝 𝐩𝐞𝐫𝐬𝐨𝐧 (which manages and monitors employees working under him) and 𝐚𝐧 𝐄𝐦𝐩𝐥𝐨𝐲𝐞𝐞 𝐩𝐞𝐫𝐬𝐨𝐧 (which works under the head person). To make an automatic record of attendance of meetings and make meetings for future use, this application can be very handy in daily online meetings/classes.
 Main 𝐨𝐛𝐣𝐞𝐜𝐭𝐢𝐯𝐞 of this software is to decrease the managing efforts, make everything automatic and to make online meetings more secure.
 We chose a proactive approach to testing so that the testing of individual module was done simultaneously with the deployment. This method helped us to check the individual module for a better implementation of the project.
@@ -13,8 +13,8 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Firebase
+* Face min.js
 
 ### Installing
 
