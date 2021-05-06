@@ -57,12 +57,12 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
   <img src="Screenshots/Login.png" alt="alt text 2">
   <img src="Screenshots/Register.png" alt="alt text 3">
   <img src="Screenshots/Forget Password.png" alt="alt text 4">
-  
-</div>
-![](./Screenshots/Home.png)
+ ![](./Screenshots/Home.png)
 ![](./Screenshots/Register.png)
 ![](./Screenshots/Login.png)
 ![](./Screenshots/Forget Password.png)
+</div>
+
 
 ## Walkthrough Video and Website link
 - Website Link : <a href="https://venemic.github.io/CENTRAL/" target="_blank">Site is active!</a>
