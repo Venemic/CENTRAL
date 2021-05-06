@@ -35,11 +35,9 @@ We chose a proactive approach to testing so that the testing of individual modul
 ### Executing program
 
 * How to run the program
-- Download our git repository and open in any IDE/Code-Editor like:- Pycharm/ Vs code, make sure you are 
-* Step-by-step bullets
-```
-code blocks for commands
-```
+   1.Download our git repository and open in any IDE/Code-Editor like:- Pycharm/ Vs code, make sure you are open the folder as a root folder.
+   2.Open the index.html using live server on your local host device.
+   3.Register as a *Student* or a *Teacher* and start using the service.
 
 ## Help
 
