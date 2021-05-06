@@ -51,7 +51,11 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
     * Initial Release
 
 ## Screenshots
-
+{% slider %}
+  ![alt text 1](image1.jpg)
+  ![alt text 2](image2.jpg)
+  ![alt text 3](image3.jpg)
+{% endslider %}
 ## Walkthrough Video and Website link
 - Website Link : <a href="" target="_blank">Soon</a>
 - Youtube Demo : <a href="">Soon</a>
