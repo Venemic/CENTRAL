@@ -1,5 +1,6 @@
 # CENTRAL
  A WEB BASED FACIAL ATTENDANCE APPLICATION. 
+ 
   <img src="Screenshots/Website Creator.gif" alt="alt text 5" height="400px">
 ## Description
 
