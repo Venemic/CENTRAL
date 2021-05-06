@@ -11,6 +11,14 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ## Getting Started
 
+## Salient Features
+
+1.Easy and simple
+
+2.Secure 
+
+3.Fast and responsive 
+
 ## Tech Stack
 
 - JS,CSS,Bootstrap
