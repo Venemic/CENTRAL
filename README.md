@@ -13,17 +13,17 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ## Salient Features
 
-1.Easy and simple
+- Easy and simple
 
-2.Secure 
+- Secure 
 
-3.Fast and responsive 
+- Fast and responsive 
 
 ## Tech Stack
 
-- JS,CSS,Bootstrap
+- HTML, CSS, Js, Bootstrap
 
-- Face min.js API (Realtime web image/video recogniton using javascript)
+- Face min.js API (Realtime web image/video recogniton)
 
 - Firebase Storage, Authentication and Realtime Database.
 
@@ -35,6 +35,7 @@ We chose a proactive approach to testing so that the testing of individual modul
 ### Executing program
 
 * How to run the program
+- Download our git repository and open in any IDE/Code-Editor like:- Pycharm/ Vs code, make sure you are 
 * Step-by-step bullets
 ```
 code blocks for commands
