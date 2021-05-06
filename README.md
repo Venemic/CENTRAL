@@ -39,7 +39,7 @@ We chose a proactive approach to testing so that the testing of individual modul
    **2.** Open the index.html using live server on your local host device.&ensp;  
    **3.** Register as a **Student** or a **Teacher** and start using the service.  
 
-## Authors
+## Author
 
 Contributors names and contact info
 
