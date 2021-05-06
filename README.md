@@ -52,7 +52,7 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
 ## Screenshots
 <div id="slider">
-  <img src="image1.jpg" alt="alt text 1">
+  <img src="Screenshots/Home.png" alt="alt text 1">
   <img src="image2.jpg" alt="alt text 2">
   <img src="image3.jpg" alt="alt text 3">
 </div>
