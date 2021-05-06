@@ -2,6 +2,7 @@
  A WEB BASED FACIAL ATTENDANCE APPLICATION. 
  
   <img src="Screenshots/Website Creator.gif" alt="alt text 5" height="400px">
+  
 ## Description
 
 𝐂𝐞𝐧𝐭𝐫𝐚𝐥, a facial recognition-based attendance taking web application which keeps a record of attendance and classes for every student and prevents third-party entries. It also gives a super easy managing dashboard to the faculty and requires less maintenance.
