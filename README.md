@@ -35,23 +35,15 @@ We chose a proactive approach to testing so that the testing of individual modul
 ### Executing program
 
 * How to run the program
-   1.Download our git repository and open in any IDE/Code-Editor like:- Pycharm / Vs code, make sure you are open the folder as a root folder.&ensp;  
+   &ensp;1.Download our git repository and open in any IDE/Code-Editor like:- Pycharm / Vs code, make sure you are opening the folder as a root folder.&ensp;  
    2.Open the index.html using live server on your local host device.&ensp;  
-   3.Register as a **Student** or a **Teacher** and start using the service.&ensp;  
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+   3.Register as a **Student** or a **Teacher** and start using the service.  
 
 ## Authors
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
 ## Version History
 
@@ -59,6 +51,7 @@ ex. [@DomPizzie](https://twitter.com/dompizzie)
     * Initial Release
 
 ## Screenshots
+
 ## Walkthrough Video and Website link
 - Website Link : <a href="" target="_blank">Soon</a>
 - Youtube Demo : <a href="">Soon</a>
