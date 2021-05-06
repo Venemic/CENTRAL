@@ -40,7 +40,7 @@ We chose a proactive approach to testing so that the testing of individual modul
 
 ## Author
 
-Contributors names and contact info
+`Contributors names and contact info
 
 ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
