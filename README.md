@@ -58,5 +58,5 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 </div>
 
 ## Walkthrough Video and Website link
-- Website Link : <a href="https://venemic.github.io/CENTRAL/" target="_blank">Soon</a>
+- Website Link : <a href="https://venemic.github.io/CENTRAL/" target="_blank">Site is active!</a>
 - Youtube Demo : <a href="">Soon</a>
