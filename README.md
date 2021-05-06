@@ -53,8 +53,9 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 ## Screenshots
 <div id="slider">
   <img src="Screenshots/Home.png" alt="alt text 1">
-  <img src="image2.jpg" alt="alt text 2">
-  <img src="image3.jpg" alt="alt text 3">
+  <img src="Screenshots/Login.png" alt="alt text 2">
+  <img src="Screenshots/Register.png" alt="alt text 3">
+  <img src="Screenshots/Forget Password.png" alt="alt text 4">
 </div>
 
 ## Walkthrough Video and Website link
