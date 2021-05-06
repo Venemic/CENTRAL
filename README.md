@@ -54,13 +54,13 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
 
 <div id="slider" >
   <h3>HOME PAGE</h3>
-  <img src="Screenshots/Home.png" alt="alt text 1" width="300" height="300">
+  <img src="Screenshots/Home.png" alt="alt text 1" width="500" height="300">
   <h3>REGISTER PAGE</h3>
-  <img src="Screenshots/Register.png" alt="alt text 2" width="300" height="300">
+  <img src="Screenshots/Register.png" alt="alt text 2" width="500" height="300">
   <h3>LOGIN PAGE</h3>
-    <img src="Screenshots/Login.png" alt="alt text 3" width="300" height="300">
+    <img src="Screenshots/Login.png" alt="alt text 3" width="500" height="300">
   <h3>FORGET PASSWORD PAGE</h3>
-  <img src="Screenshots/Forget Password.png" alt="alt text 4" width="300" height="300">
+  <img src="Screenshots/Forget Password.png" alt="alt text 4" width="500" height="300">
 </div>
 
 
