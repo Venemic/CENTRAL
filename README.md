@@ -1,5 +1,3 @@
-# CENTRAL
-Welcome to CENTRAL, a Facial Recognition Web-App
 # Project Title
 
 Simple overview of use/purpose.
