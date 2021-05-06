@@ -58,13 +58,6 @@ ex. Shivam Singh (https://www.linkedin.com/in/singhshivam-007/)
   <img src="Screenshots/Register.png" alt="alt text 3">
   <img src="Screenshots/Forget Password.png" alt="alt text 4">
 </div>
-<div align="center">
-	<br>
-	<a href="https://raw.githubusercontent.com/sindresorhus/css-in-readme-like-wat/main/readme.md">
-		<img src="header.svg" width="800" height="400" alt="Click to see the source">
-	</a>
-	<br>
-</div>
 
 ## Walkthrough Video and Website link
 - Website Link : <a href="https://venemic.github.io/CENTRAL/" target="_blank">Site is active!</a>
